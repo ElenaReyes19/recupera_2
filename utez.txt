@@ -1,0 +1,26 @@
+create database utez;
+use utez;
+----------------------------------------
+create table docente (
+   numemp int primary key auto_increment
+);
+---------------------------------------------
+create table estudiante (
+   matri varchar primary key auto_increment
+);
+-----------------------------------------------
+create table evaluacion (
+   calificacion int primary key auto_increment,
+   materia varchar(80) not null,
+);
+--------------------------------------------------
+create table persona (
+   name varchar(50) not null unique ,
+   lastname varchar(50) not null,
+   curp varchar(50) not null,
+   birthday date not null ,
+   docente_num int null,
+   estu_matri varchar,
+   constraint fk_docente foreign key (docente_numemp) references docente (numemp),
+   constraint fk_estudiante foreign key (estudiante_matri) references estudiante (matri)
+);
